@@ -1,16 +1,22 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import SignupForm from './layouts/signup'
+
 
 import './App.css'
+
+
 
 function App() {
  
 
   return (
     <>
-     
+    <SignupForm />
+
+    
     </>
   )
 }
 
 export default App
+
