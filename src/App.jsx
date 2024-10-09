@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import SignupForm from './layouts/signup'
 
 
 import './App.css'
@@ -8,7 +10,9 @@ function App() {
 
   return (
     <>
-     <h1 className="text-3xl font-bold underline">
+    <SignupForm />
+
+    <h1 className="text-3xl font-bold underline">
       Hello world!
     </h1>
     </>
@@ -16,3 +20,4 @@ function App() {
 }
 
 export default App
+
