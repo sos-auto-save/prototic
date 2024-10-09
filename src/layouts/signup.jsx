@@ -1,8 +1,6 @@
-// cadastro
-
 import React, { useState } from 'react'
+import { registerUser } from '../services/user.js'
 
-// Button component
 const Button = ({ children, className, variant, ...props }) => {
   const baseStyle = "px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2"
   const variantStyles = {
@@ -20,7 +18,6 @@ const Button = ({ children, className, variant, ...props }) => {
   )
 }
 
-// Input component
 const Input = ({ className, ...props }) => {
   return (
     <input 
@@ -30,7 +27,6 @@ const Input = ({ className, ...props }) => {
   )
 }
 
-// Icons component
 const Icons = {
   eye: (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -49,6 +45,38 @@ const Icons = {
 export default function SignupForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
+  const [error, setError] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setError('')
+    setSuccessMessage('')
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match')
+      return
+    }
+
+    try {
+      const newUser = registerUser(formData.nome, 0, formData.email, formData.password)
+      console.log('User registered:', newUser)
+      setSuccessMessage('User registered successfully!')
+      setFormData({ nome: '', email: '', password: '', confirmPassword: '' })
+    } catch (err) {
+      setError('Failed to register user')
+    }
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#2C4C3B] p-4">
@@ -58,26 +86,40 @@ export default function SignupForm() {
             <h2 className="text-3xl font-bold text-[#FF8C00]">SOS</h2>
           </div>
         </div>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          {error && <p className="text-red-500 text-center">{error}</p>}
+          {successMessage && <p className="text-green-500 text-center">{successMessage}</p>}
           <div>
             <Input
               type="text"
+              name="nome"
+              value={formData.nome}
+              onChange={handleChange}
               placeholder="Escreva seu nome completo"
               className="bg-white/10 text-white placeholder:text-gray-400"
+              required
             />
           </div>
           <div>
             <Input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Escreva seu Email"
               className="bg-white/10 text-white placeholder:text-gray-400"
+              required
             />
           </div>
           <div className="relative">
             <Input
               type={showPassword ? "text" : "password"}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="Escreva sua Senha"
               className="bg-white/10 text-white placeholder:text-gray-400"
+              required
             />
             <button
               type="button"
@@ -94,8 +136,12 @@ export default function SignupForm() {
           <div className="relative">
             <Input
               type={showConfirmPassword ? "text" : "password"}
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               placeholder="Escreva sua Senha novamente"
               className="bg-white/10 text-white placeholder:text-gray-400"
+              required
             />
             <button
               type="button"
@@ -109,8 +155,8 @@ export default function SignupForm() {
               )}
             </button>
           </div>
-          <Button className="w-full bg-[#FF8C00] text-white hover:bg-[#E67E00]">
-            Entrar
+          <Button type="submit" className="w-full bg-[#FF8C00] text-white hover:bg-[#E67E00]">
+            Registrar
           </Button>
         </form>
         <div className="flex justify-center space-x-4">
