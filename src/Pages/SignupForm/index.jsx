@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { registerUser } from '../services/user.js'
+import { registerUser } from '../../services/user.js'
 
 const Button = ({ children, className, variant, ...props }) => {
   const baseStyle = "px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -42,7 +42,7 @@ const Icons = {
   )
 }
 
-export default function SignupForm() {
+export const SignupForm = ()=> {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [formData, setFormData] = useState({
