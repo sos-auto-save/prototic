@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { registerUser } from '../../services/user.js'
+import { Link } from 'react-router-dom'
 
 const Button = ({ children, className, variant, ...props }) => {
   const baseStyle = "px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -169,9 +170,10 @@ export const SignupForm = ()=> {
         </div>
         <p className="text-center text-sm text-gray-300">
           Já tem uma conta?{" "}
-          <a href="#" className="font-semibold text-white hover:underline">
-            Entre
-          </a>
+          <Link to={"/"} className="font-semibold text-white hover:underline">
+          Entre
+          </Link>
+      
         </p>
       </div>
     </div>
