@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -115,9 +116,10 @@ export const LoginForm = () => {
 
           {/* First Access Link */}
           <div className="text-center pt-4">
-            <a href="#" className="text-white text-sm hover:underline">
+            <Link to={"/signup"} className="text-white text-sm hover:underline">
               Primeiro acesso
-            </a>
+            </Link>
+      
           </div>
         </form>
       </div>
