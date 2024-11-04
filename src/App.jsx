@@ -12,11 +12,12 @@ function App() {
     <BrowserRouter>
       <Routes>
      
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
+       
         
      
         <Route element={<Layout />}>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
           <Route path="*" element={<ErrorPage404 />} />
         </Route>
       </Routes>

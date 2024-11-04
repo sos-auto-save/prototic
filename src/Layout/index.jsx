@@ -1,9 +1,19 @@
 import { Outlet } from 'react-router-dom';
+import './layout.css'; 
+
+import { useState } from 'react';
+import { ResponsiveToggle } from '../components/Responsive';
 
 export const Layout = () => {
+  const [isMobile, setIsMobile] = useState(true);
+
   return (
-    <main>
-      <Outlet />
-    </main>
+    <div className={`device-frame ${isMobile ? 'mobile' : 'desktop'}`}>
+      <ResponsiveToggle onToggle={setIsMobile} />
+      {isMobile && <div className="camera"></div>} 
+      <main className="device-content">
+        <Outlet />
+      </main>
+    </div>
   );
 };
