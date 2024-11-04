@@ -6,7 +6,7 @@ export const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    rememberPassword: false
+    rememberPassword: false,
   });
 
   const handleSubmit = (e) => {
@@ -15,9 +15,8 @@ export const LoginForm = () => {
   };
 
   return (
-    
     <div className="min-h-screen bg-[#4A5B4A] flex items-center justify-center p-4">
-      <div className="w-full max-w-md space-y-6">
+      <div className="w-full max-w-sm md:max-w-md lg:max-w-lg space-y-6">
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <div className="bg-black rounded-lg p-3 inline-block">
@@ -26,9 +25,7 @@ export const LoginForm = () => {
           </div>
         </div>
 
-      
         <form onSubmit={handleSubmit} className="space-y-4">
-         
           <div className="space-y-2">
             <label className="block text-white text-sm">Email</label>
             <input
@@ -38,7 +35,6 @@ export const LoginForm = () => {
             />
           </div>
 
-         
           <div className="space-y-2">
             <label className="block text-white text-sm">Sua senha</label>
             <div className="relative">
@@ -66,7 +62,6 @@ export const LoginForm = () => {
             </div>
           </div>
 
-       
           <div className="flex items-center">
             <input
               type="checkbox"
@@ -78,7 +73,6 @@ export const LoginForm = () => {
             </label>
           </div>
 
-         
           <button
             type="submit"
             className="w-full bg-orange-500 text-white p-3 rounded-lg font-medium hover:bg-orange-600 transition-colors"
@@ -86,14 +80,12 @@ export const LoginForm = () => {
             Entrar
           </button>
 
-        
           <div className="text-center">
             <a href="#" className="text-white text-sm hover:underline">
               Esqueci a senha
             </a>
           </div>
 
-         
           <div className="pt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
@@ -114,16 +106,14 @@ export const LoginForm = () => {
             </div>
           </div>
 
-          {/* First Access Link */}
+          
           <div className="text-center pt-4">
             <Link to={"/signup"} className="text-white text-sm hover:underline">
               Primeiro acesso
             </Link>
-      
           </div>
         </form>
       </div>
     </div>
   );
 };
-
