@@ -6,18 +6,16 @@ import { LoginForm } from './Pages/Login';
 import { SignupForm } from './Pages/SignupForm';
 import { ErrorPage404 } from './Pages/ErrorPage404';
 import { Layout } from './Layout';
+import { Service } from './Pages/Service';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-     
-       
-        
-     
         <Route element={<Layout />}>
           <Route path="/" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
+          <Route path="/service" element={<Service />} />
           <Route path="*" element={<ErrorPage404 />} />
         </Route>
       </Routes>

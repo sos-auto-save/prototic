@@ -12,7 +12,7 @@ export const Header = ({ usuario }) => {
                     <img className="w-[74px] h-[74px] rounded-full" src={usuario.avatar} alt="Avatar" />
                 </div>
                 <div >
-                    <h1 className="text-2xl font-bold text-zinc-50 ">Olá, <span className="text-title-name">{usuario.name}</span></h1>
+                    <h1 className="text-2xl font-bold text-zinc-50 text-start flex-1 ">Olá, <span className="text-title-name">{usuario.name}</span></h1>
                     <p className="text-[14px] text-zinc-50">{usuario.email}</p>
                 </div>
                 <div>
