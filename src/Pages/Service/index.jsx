@@ -1,4 +1,6 @@
+import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
+import { Input } from "../../components/Input"
 
 export const Service = () => {
     const usuario = {
@@ -11,20 +13,10 @@ export const Service = () => {
             <Header usuario={usuario} />
             <form className="flex flex-col items-center justify-center h-screen gap-4 bg-background px-[29px]">
                 <h1 className="text-3xl font-semibold text-zinc-50">Agende seu serviço</h1>
-                <label htmlFor="data" className="flex flex-col w-full ">
-                    <span className="mb-4 text-base text-label-color font-semibold">Data:</span>
-                    <input className="text-base px-[1rem] py-[22px] rounded-[10px] border-2 border-degrade-orange max-h-[60px]" type="text" name="data" id="data" placeholder="Selecione uma data" />
-                </label>
-                <label htmlFor="hora" className="flex flex-col w-full">
-                    <span className="mb-4 text-base text-label-color font-semibold">Hora:</span>
-                    <input className="text-base px-[1rem] py-[22px] rounded-[10px] border-2 border-degrade-orange max-h-[60px]" type="text" name="hora" id="hora" placeholder="Selecione uma horário" />
-                </label>
-                <label htmlFor="localizacao" className="flex flex-col w-full">
-                    <span className="mb-4 text-base text-label-color font-semibold">Localização:</span>
-                    <input className="text-base px-[1rem] py-[22px] rounded-[10px] border-2 border-degrade-orange max-h-[60px]" type="text" name="localizacao" id="localizacao" placeholder="Defina a localização" />
-                </label>
-                <button className="flex items-center justify-center w-full px-[1rem] py-[22px] font-bold rounded-[10px] max-h-[60px] bg-degrade-orange text-zinc-50">Confirmar agendamento</button>
-
+                <Input label="data" span="Data:" placeholder="Selecione uma data" />
+                <Input label="hora" span="Hora:" placeholder="Selecione um horário" />
+                <Input label="localizacao" span="Localização:" placeholder="Defina a localização" />
+                <Button type="submit" placeholder="Confirmar agendamento" bgcolor="bg-degrade-orange" bghover="bg-orange-600" />
             </form>
 
         </>
