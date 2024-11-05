@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Header } from '../../components/Header';
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +12,7 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
   };
 
   return (
@@ -106,7 +107,7 @@ export const LoginForm = () => {
             </div>
           </div>
 
-          
+
           <div className="text-center pt-4">
             <Link to={"/signup"} className="text-white text-sm hover:underline">
               Primeiro acesso
