@@ -16,7 +16,8 @@ function App() {
         
      
         <Route element={<Layout />}>
-          <Route path="/" element={<LoginForm />} />
+          
+           <Route path="/" element={<LoginForm />} /> 
           <Route path="/signup" element={<SignupForm />} />
           <Route path="*" element={<ErrorPage404 />} />
         </Route>
