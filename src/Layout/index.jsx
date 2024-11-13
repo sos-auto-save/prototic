@@ -3,6 +3,7 @@ import './layout.css';
 
 import { useState } from 'react';
 import { ResponsiveToggle } from '../components/Responsive';
+import { Footer } from '../components/Footer';
 
 export const Layout = () => {
   const [isMobile, setIsMobile] = useState(true);
