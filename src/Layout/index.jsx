@@ -14,6 +14,7 @@ export const Layout = () => {
       {isMobile && <div className="camera"></div>} 
       <main className="device-content">
         <Outlet />
+      
       </main>
     </div>
   );
